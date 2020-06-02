@@ -1,0 +1,536 @@
+/* Resetiranje i Varijable */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --primaryColor: #00509f;
+  --secondaryColor: #b7935d;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --darkBlue: #00172b;
+  --mainTransition: all 0.3s ease;
+  --mainSpacing: 3px;
+  --lightShadow: 3px 5px 13px 10px rgba(0, 0, 0, 0.1);
+  --darkShadow: 4px 5px 5px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* Globalno uređenje */
+
+body {
+  padding-top: 66px;
+  color: var(--mainBlack);
+  background: var(--mainWhite);
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+}
+h1, h2 {
+  font-size: 3em;
+  line-height: 1;
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3, h4 {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+}
+h4 {
+  font-size: 1.2rem;
+}
+h5, h6 {
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 1.5em;
+  text-transform: uppercase;
+}
+
+.btn-primary {
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--mainWhite);
+  background: var(--primaryColor);
+  padding: 0.7rem 0.9rem;
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--secondaryColor);
+}
+.loading {
+  text-align: center;
+  margin-top: 3rem;
+}
+.error {
+  text-align: center;
+  margin: 2rem 0;
+}
+.empty-search {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1rem;
+  letter-spacing: var(--mainSpacing);
+}
+
+/* Menu */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.75rem 0.7rem;
+  background: var(--offWhite);
+  z-index: 1;
+}
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+}
+.nav-header .logo-image {
+  height: 70px;
+  position: absolute;
+}
+.nav-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+.nav-icon {
+  font-size: 2rem;
+  color: var(--primaryColor);
+}
+.nav-links {
+  height: 0;
+  overflow: hidden; 
+  transition: var(--mainTransition);
+  list-style-type: none;
+}
+.nav-links a {
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1rem 0;
+  color: var(--darkBlue);
+  transition: var(--mainTransition);
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: var(--mainSpacing);
+}
+.nav-links a:hover {
+  color: var(--secondaryColor);
+}
+.show-nav {
+  height: 165px;
+}
+
+/* Header - Hero sekcija */
+
+.defaultHero,
+.productsHero,
+.playersHero {
+  min-height: calc(100vh - 66px);
+  background: url("./images/defaultBcg.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.productsHero {
+  background-image: url("./images/bbb.jpg");
+  min-height: 75vh;
+}
+.playersHero {
+  background-image: url("./images/team.jpg");
+  min-height: 75vh;
+}
+
+/* Komponenta Baner */
+
+.banner {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.6);
+  color: var(--mainWhite);
+  padding: 2rem 1rem;
+  text-align: center;
+  letter-spacing: var(--mainSpacing);
+}
+.banner h1 {
+  font-size: 2.5rem;
+}
+.banner div {
+  width: 10rem;
+  height: 5px;
+  background: var(--primaryColor);
+  margin: 1.7rem auto;
+}
+.banner p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* Naslovi */
+
+.section-title {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.section-title h4 {
+  font-size: 2rem;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 1rem;
+}
+.section-title div {
+  width: 5rem;
+  height: 5px;
+  margin: 0 auto;
+  background: var(--primaryColor);
+}
+
+/* services */
+
+.services {
+  padding: 5.5rem 0;
+  background: var(--mainGrey);
+  text-align: center;
+}
+.services-center {
+  width: 90vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 50px;
+}
+.service span {
+  display: inline-block;
+  color: var(--primaryColor);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+.services h6 {
+  letter-spacing: var(--mainSpacing);
+}
+.services p {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Izdvojeni artikli */
+
+.featured-products {
+  padding: 5.5rem 0;
+}
+.featured-products-center {
+  width: 80vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 40px;
+}
+
+/* Pojedini artikl */
+
+.product {
+  box-shadow: var(--lightShadow);
+  transition: var(--mainTransition);
+}
+.product:hover {
+  box-shadow: var(--lightShadow);
+}
+.product-container {
+  overflow: hidden;
+  cursor: pointer;
+}
+.product-container img {
+  width: 100%;
+  display: block;
+  transition: var(--mainTransition);
+}
+.image-container:hover img {
+  transform: scale(1.1);
+  transition: var(--mainTransition);
+}
+.product-info {
+  background: var(--primaryColor);
+  color: var(--mainWhite);
+  padding: 0.5rem 0;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: var(--mainSpacing);
+}
+.product-info:hover {
+  color: var(--secondaryColor)
+}
+
+/* Podstranica od artikla */
+
+.single-product {
+  padding: 5rem 0 0 0;
+}
+.single-product image {
+  display: flex;
+  justify-content: center;
+}
+.single-product-image img {
+  width: 100%;
+  text-align: center;
+}
+.single-product-image:hover img {
+  transform: scale(1.05);
+  transition: var(--mainTransition);
+}
+.single-product-info {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 2rem auto;
+}
+.info {
+  margin: 1rem 0;
+}
+.info h3,
+.info h6 {
+  letter-spacing: var(--mainSpacing);
+}
+.info h6 {
+  font-weight: 300;
+}
+.product-extras {
+  width: 80vw;
+  margin: 0 auto 3rem auto;
+}
+
+.extras {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  grid-column-gap: 2rem;
+  grid-row-gap: 1rem;
+}
+
+/* Lista artikala */
+
+.productslist {
+  padding: 1rem 0;
+}
+.productslist-center {
+  width: 80vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 30px;
+}
+
+/*  Forme za filtriranje*/
+
+.filter-container {
+  padding: 5rem 0;
+}
+.filter-form {
+  width: 95vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-row-gap: 1.5rem;
+  grid-column-gap: 30px;
+}
+.form-group {
+  text-transform: uppercase;
+}
+.form-group label {
+  display: block;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 0.5rem;
+}
+.form-control {
+  width: 100%;
+  background: transparent;
+  font-size: 1rem;
+}
+.single-extra label {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+/* Footer */
+
+.footer{
+  padding: 4rem 0;
+  background: var(--darkBlue);
+  color: var(--mainWhite);
+}
+.footer-logo-box {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.footer-center {
+  width: 85vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 50px;
+}
+.footer-items {
+  padding: 1.5rem 0;
+}
+.footer-list {
+  padding: 1rem 0;
+  list-style: none;
+}
+.footer-item {
+  padding: 0.1rem 0;
+}
+.footer-link:link, .footer-link:visited {
+  font-size: 1.2rem;
+  color: var(--mainWhite);
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+}
+.footer-link:hover, .footer-link:active {
+  color: var(--primaryColor);
+}
+.copyright {
+  border-top: 1px solid #777;
+  padding: 1rem 0;
+  width: 100%;
+  text-align: center;
+}
+
+/* Igrači */
+
+.img-container {
+  overflow: hidden;
+  cursor: pointer;
+}
+.img-container img {
+  width: 100%;
+  display: block;
+  transition: var(--mainTransition);
+}
+.img-container:hover img {
+  transform: scale(1.1);
+}
+.player-info {
+  background: var(--darkBlue);
+  color: var(--mainWhite);
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  font-weight: 700;
+  letter-spacing: var(--mainSpacing);
+}
+.player-num {
+  font-size: 3.5rem;
+}
+
+/* Lista igrača  */
+
+.playerslist {
+  padding: 1rem 0;
+}
+.playerslist-center {
+  width: 80vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 30px;
+}
+.players-checkbox {
+  padding: 1rem 1rem;
+  display: inline-block;
+}
+.players-checkbox label {
+  padding: 0 0.5rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+/* Media, desktop, tablet, mobitel */
+@media screen and (min-width: 576px) {
+  .banner {
+    padding: 2rem 3rem;
+  }
+  .banner h1 {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 776px) {
+  .nav-header .logo-image {
+    height: 110px;
+  }
+  .nav-btn {
+    display: none;
+  }
+  .nav-center {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+  }
+  .nav-links {
+    height: auto;
+    display: flex;
+    margin-left: 9rem;
+  }
+  .nav-links a {
+    margin: 1rem 1rem;
+    padding: 0.5rem 0;
+  }
+  .featured-products-center {
+    width: 90vw;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  }
+  .productslist-center, .playerslist-center {
+    width: 90vw;
+  }
+  .filter-form {
+    width: 70vw;
+  }
+}
+
+
+@media screen and (min-width: 992px) {
+  .banner {
+    padding: 2rem 6rem;
+  }
+  .banner h1 {
+    font-size: 4rem;
+  }
+  .productslist-center, .playerslist-center, .featured-products-center, .filter-form , .services-center,
+  .single-product-info, .product-extras {
+    width: 95vw;
+    max-width: 1170px;
+  }
+  .single-product-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+  }
+  .info {
+    padding-left: 3rem;
+  }
+}
+
+  @media screen and (min-width: 1200px) {
+    .services p {
+      width: 100%;
+    }
+  }
